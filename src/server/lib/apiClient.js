@@ -28,7 +28,17 @@ async function arrivals(lineCode, stationCode) {
 
   const requestPath = `/Line/${lineCodes.join(',')}/Arrivals`
 
-  const data = await request(requestPath, { stopPointId: stationCode })
+  const arrivals = await request(requestPath, { stopPointId: stationCode })
+
+  arrivals.sort((a, b) => a.timeToStation - b.timeToStation)
+
+  const platforms = {}
+
+  arrivals.forEach((arrival) => {
+    // platforms[record.platformName] ??= []
+    platforms[arrival.platformName] = platforms[arrival.platformName] || []
+    platforms[arrival.platformName].push(arrival)
+  })
 
   return {
     request: {
@@ -39,16 +49,7 @@ async function arrivals(lineCode, stationCode) {
       lineName: networkData.lines[lineCode],
       stationName: networkData.stations[stationCode],
     },
-    platforms: data
-      .sort((a, b) => {
-        return a.timeToStation - b.timeToStation
-      })
-      .reduce((map, record) => {
-        map[record.platformName] = map[record.platformName] || []
-        map[record.platformName].push(record)
-
-        return map
-      }, {}),
+    platforms,
   }
 }
 
