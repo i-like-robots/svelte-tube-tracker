@@ -1,5 +1,7 @@
 const { arrivals } = require('../lib/apiClient')
 const homeView = require('../views/homeView')
+const networkData = require('../../common/networkData.json')
+const App = require('../../components/App.svelte').default
 
 async function homeRoute(request, response) {
   try {
@@ -11,14 +13,15 @@ async function homeRoute(request, response) {
       initialData = await arrivals(line, station)
     }
 
-    const body = 'Hello, World'
+    const app = App.render({ networkData, initialData }).html
+    const html = homeView({ app, initialData })
 
     response.writeHead(200, {
       'Cache-Control': 'max-age=30, must-revalidate',
       'Content-Type': 'text/html; charset=UTF-8',
     })
 
-    response.end(homeView({ body, initialData }))
+    response.end(html)
   } catch (error) {
     console.error(error)
     response.statusCode = error.status || 500

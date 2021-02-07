@@ -1,4 +1,4 @@
-function homeView({ body, initialData }) {
+function homeView({ app, initialData }) {
   return `
     <!DOCTYPE html>
     <html lang="en-GB">
@@ -9,7 +9,7 @@ function homeView({ body, initialData }) {
         <link rel="stylesheet" href="/styles.css">
       </head>
       <body>
-        <div id="app">${body}</div>
+        <div id="app">${app}</div>
         <script type="application/json" id="initialData">
           ${JSON.stringify(initialData)}
         </script>
