@@ -1,15 +1,15 @@
 <script>
   import DepartureBoardTrains from './DepartureBoardTrains.svelte'
 
-  export let predictionData
+  export let arrivalsData
 
-  const platforms = Object.entries(predictionData.platforms)
+  const platforms = Object.entries(arrivalsData.platforms)
 </script>
 
 <div class="Departures">
   <h1 class="Departures-heading">
-    {predictionData.station.stationName} Station,
-    {predictionData.station.lineName} Line
+    {arrivalsData.station.stationName} Station,
+    {arrivalsData.station.lineName} Line
   </h1>
   {#each platforms as [name, trains]}
     <div class="Platform">

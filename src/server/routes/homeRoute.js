@@ -6,13 +6,13 @@ async function homeRoute(request, response) {
   try {
     const { line, station } = request.query
 
-    let initialData = null
+    let arrivalsData = null
 
     if (line && station) {
-      initialData = await arrivals(line, station)
+      arrivalsData = await arrivals(line, station)
     }
 
-    const app = App.render({ networkData, initialData }).html
+    const app = App.render({ networkData, arrivalsData }).html
 
     response.writeHead(200, {
       'Cache-Control': 'max-age=30, must-revalidate',
@@ -30,7 +30,7 @@ async function homeRoute(request, response) {
         <body>
           <div id="app">${app}</div>
           <script type="application/json" id="initialData">
-            ${JSON.stringify(initialData)}
+            ${JSON.stringify({ networkData, arrivalsData })}
           </script>
           <script src="/bundle.js"></script>
         </body>

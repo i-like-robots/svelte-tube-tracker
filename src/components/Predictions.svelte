@@ -1,7 +1,7 @@
 <script>
   import DepartureBoard from './DepartureBoard.svelte'
 
-  export let initialData
+  export let arrivalsData
 </script>
 
-<DepartureBoard predictionData={initialData} />
+<DepartureBoard {arrivalsData} />
