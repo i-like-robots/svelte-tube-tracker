@@ -6,7 +6,9 @@
   "main": "src/server/start.js",
   "scripts": {
     "dev": "env $(cat .env) nodemon index.js -e js,svelte",
-    "build": "echo 'not implemented'",
+    "start": "node src/server/start.js",
+    "build:dev": "rollup -c --environment BUILD:dev",
+    "build:prod": "rollup -c --environment BUILD:production",
     "lint": "eslint . --ext js,svelte",
     "format": "prettier --write '**/*.{js,svelte,json,css}'",
     "spec": "echo 'not implemented'",
@@ -31,7 +33,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.1.0",
-    "@rollup/plugin-node-resolve": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.1",
     "eslint": "^7.19.0",
     "eslint-plugin-svelte3": "^3.0.0",
     "husky": "^4.3.8",
