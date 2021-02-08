@@ -10,7 +10,7 @@
 
 <div class="Network">
   {#each lineCodes as lineCode}
-    <NetworkLine {networkData} {lineCode} {line} {station} />
+    <NetworkLine on:station-select {line} {station} {networkData} {lineCode} />
   {/each}
-  <button type="button" class="Network-toggle"> Toggle </button>
+  <!-- <button type="button" class="Network-toggle"> Toggle </button> -->
 </div>

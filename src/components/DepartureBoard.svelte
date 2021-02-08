@@ -3,7 +3,7 @@
 
   export let arrivalsData
 
-  const platforms = Object.entries(arrivalsData.platforms)
+  $: platforms = Object.entries(arrivalsData.platforms)
 </script>
 
 <div class="Departures">

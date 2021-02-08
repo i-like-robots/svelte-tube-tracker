@@ -1,19 +1,30 @@
 <script>
+  import { createEventDispatcher } from 'svelte'
+
   export let line
   export let station
-  export let networkData
   export let lineCode
+  export let networkData
 
-  const stationsOnLine = networkData.stationsOnLines[lineCode]
+  const dispatch = createEventDispatcher()
+
+  function handleSubmit(e) {
+    const data = new FormData(e.target)
+
+    dispatch('station-select', {
+      line: data.get('line'),
+      station: data.get('station'),
+    })
+  }
 </script>
 
-<form method="GET">
+<form method="GET" on:submit|preventDefault={handleSubmit}>
   <fieldset class={`Network-line Network-line--${lineCode}`}>
     <legend>{networkData.lines[lineCode]}</legend>
     <input type="hidden" name="line" value={lineCode} />
     <select name="station">
-      {#each stationsOnLine as stationCode}
-        <option value={stationCode} selected={line === lineCode && station == stationCode}>
+      {#each networkData.stationsOnLines[lineCode] as stationCode}
+        <option value={stationCode} selected={line === lineCode && station === stationCode}>
           {networkData.stations[stationCode]}
         </option>
       {/each}
