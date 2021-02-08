@@ -15,6 +15,7 @@ module.exports = {
   plugins: [
     svelte({
       compilerOptions: {
+        hydratable: true,
         dev: !isProduction,
       },
     }),

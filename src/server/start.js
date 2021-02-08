@@ -1,4 +1,7 @@
-require('svelte/register')
+require('svelte/register')({
+  hydratable: true,
+})
+
 const app = require('./app.js')
 
 const PORT = process.env.PORT || 3456
