@@ -25,14 +25,14 @@ async function homeRoute(request, response) {
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>TfL London Underground Arrivals</title>
-          <link rel="stylesheet" href="/styles.css">
+          <link rel="stylesheet" href="/static/styles.css">
         </head>
         <body>
           <div id="app">${app}</div>
           <script type="application/json" id="initialData">
             ${JSON.stringify({ networkData, arrivalsData })}
           </script>
-          <script src="/bundle.js"></script>
+          <script src="/static/bundle.js"></script>
         </body>
       </html>
     `)
