@@ -1,4 +1,5 @@
 <script>
+  import { onDestroy, onMount } from 'svelte'
   import Notice from './Notice.svelte'
   import DepartureBoard from './DepartureBoard.svelte'
 
@@ -6,6 +7,7 @@
   export let station
   export let arrivalsData
 
+  let poller = null
   let status = arrivalsData ? 'success' : 'welcome'
 
   // Only trigger a data fetch when the line and/or station changes
@@ -17,8 +19,8 @@
     return newLine !== currentLine || newStation !== currentStation
   }
 
-  async function fetchData(lineCode, stationCode) {
-    const response = await fetch(`/api/${lineCode}/${stationCode}`)
+  async function fetchData() {
+    const response = await fetch(`/api/${line}/${station}`)
 
     if (response.ok) {
       return response.json()
@@ -27,17 +29,47 @@
     }
   }
 
-  async function updateData(lineCode, stationCode) {
+  async function updateData() {
+    clearInterval(poller)
+
+    arrivalsData = null
     status = 'loading'
 
     try {
-      arrivalsData = await fetchData(lineCode, stationCode)
+      arrivalsData = await fetchData()
       status = 'success'
     } catch (error) {
       console.error(error)
       status = 'error'
     }
+
+    resetPoll()
   }
+
+  async function refreshData() {
+    try {
+      arrivalsData = await fetchData()
+    } catch (error) {
+      console.error(error)
+    }
+
+    resetPoll()
+  }
+
+  function resetPoll() {
+    clearInterval(poller)
+    poller = setInterval(() => refreshData(), 1000 * 30)
+  }
+
+  onMount(() => {
+    if (line && station) {
+      resetPoll()
+    }
+  })
+
+  onDestroy(() => {
+    clearInterval(poller)
+  })
 
   $: isInvalidData(line, station) && updateData(line, station)
 </script>
