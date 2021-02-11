@@ -22,10 +22,10 @@
 </script>
 
 <div class="Layout">
-  <div class="Layout-sidebar">
-    <Network {line} {station} {networkData} on:station-select={handleStationSelect} />
-  </div>
-  <div class="Layout-content">
+  <div class="Layout-predictions">
     <Predictions {line} {station} {arrivalsData} />
+  </div>
+  <div class="Layout-network">
+    <Network {line} {station} {networkData} on:station-select={handleStationSelect} />
   </div>
 </div>
