@@ -1,5 +1,5 @@
 const { arrivals } = require('../lib/apiClient')
-const networkData = require('../../common/networkData.json')
+const networkData = require('../lib/networkData.json')
 const App = require('../../components/App.svelte').default
 
 async function homeRoute(request, response) {

@@ -1,7 +1,7 @@
 const createHttpError = require('http-errors')
 const { httpRequest } = require('./httpRequest')
-const networkData = require('../../common/networkData.json')
-const { isStationOnLine, mergeGroupedLines } = require('../../common/networkDataUtils')
+const networkData = require('./networkData.json')
+const { isStationOnLine, mergeGroupedLines } = require('./networkDataUtils')
 
 function request(pathname, params = {}) {
   const query = new URLSearchParams({
