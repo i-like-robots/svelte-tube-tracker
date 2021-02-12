@@ -2,11 +2,13 @@
   import { onDestroy, onMount } from 'svelte'
   import Notice from './Notice.svelte'
   import DepartureBoard from './DepartureBoard.svelte'
+  import DepartureTimer from './DepartureTimer.svelte'
 
   export let line
   export let station
   export let arrivalsData
 
+  let timer
   let poller = null
   let status = arrivalsData ? 'success' : 'welcome'
 
@@ -59,6 +61,7 @@
   function resetPoll() {
     clearInterval(poller)
     poller = setInterval(() => refreshData(), 1000 * 30)
+    timer.reset()
   }
 
   onMount(() => {
@@ -76,6 +79,7 @@
 
 {#if arrivalsData && status === 'success'}
   <DepartureBoard {arrivalsData} />
+  <DepartureTimer bind:this={timer} duration={1000 * 30} />
 {:else}
   <Notice type={status} />
 {/if}

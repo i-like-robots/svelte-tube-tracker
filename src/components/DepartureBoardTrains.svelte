@@ -20,7 +20,11 @@
   <tbody>
     {#each trains as train}
       <tr class="Trains-arrival">
-        <td>{train.timeToStation < 30 ? '-' : formatTimeToStation(train.timeToStation)}</td>
+        <td>
+          <time datetime={train.expectedArrival}>
+            {train.timeToStation < 30 ? '-' : formatTimeToStation(train.timeToStation)}
+          </time>
+        </td>
         <td>{train.towards}</td>
         <td>{train.lineName}</td>
         <td>{train.currentLocation}</td>
