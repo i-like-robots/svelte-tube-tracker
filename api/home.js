@@ -2,8 +2,8 @@ require('svelte/register')({
   hydratable: true,
 })
 
-const { arrivals } = require('../src/server/lib/apiClient')
-const networkData = require('../src/server/lib/networkData.json')
+const { arrivals } = require('../src/server/apiClient')
+const networkData = require('../src/server/networkData.json')
 const App = require('../src/components/App.svelte').default
 
 async function homeFn(request, response) {

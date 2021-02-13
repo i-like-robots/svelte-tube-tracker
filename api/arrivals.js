@@ -1,4 +1,4 @@
-const { arrivals } = require('../src/server/lib/apiClient')
+const { arrivals } = require('../src/server/apiClient')
 
 async function arrivalsFn(request, response) {
   try {
