@@ -1,66 +1,50 @@
-# Project name
+# Svelte Tube tracker
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/i-like-robots/project-name/blob/master/LICENSE) [![Build Status](https://travis-ci.org/i-like-robots/project-name.svg?branch=master)](https://travis-ci.org/i-like-robots/project-name) [![Coverage Status](https://coveralls.io/repos/github/i-like-robots/project-name/badge.svg?branch=master)](https://coveralls.io/github/i-like-robots/project-name) [![npm version](https://img.shields.io/npm/v/project-name.svg?style=flat)](https://www.npmjs.com/package/project-name)
+See the [about section](#about) to find out more about the app or jump to the [getting started](#getting-started) to run the website on your machine.
 
-Description.
+---
 
-```js
-const package = require('project-name');
+-   [About](#about)
+-   [Getting started](#getting-started)
+-   [Troubleshooting](#troubleshooting)
 
-// Example code
-```
+---
 
+## About
 
-## Installation
+### Requirements
 
-This is a [Node.js] module available through the [npm] registry. Node 14 or higher is required.
+To get started on working with the app, you'll need to make sure you have the following software tools installed.
 
-Installation is done using the [npm install] command:
+1. [Git](https://git-scm.com/)
+2. [Node.js](https://nodejs.org/en/) (version 14 or higher is required)
+3. [npm](http://npmjs.com/)
 
-```sh
-$ npm install -S project-name
-```
+Please note that this project has only been tested in Mac and Linux environments. If you are on a Mac you may find it easiest to install the [Command Line Tools](https://developer.apple.com/download/more/) package which includes Git.
 
-[Node.js]: https://nodejs.org/
-[npm]: http://npmjs.com/
-[npm install]: https://docs.npmjs.com/getting-started/installing-npm-packages-locally
+### Project setup
 
+1. Clone the Git repository and change to the new directory that has been created:
 
-## Features
+    ```bash
+    git clone git@github.com:i-like-robots/svelte-tube-tracker
+    cd svelte-tube-tracker
+    ```
 
-- List
-- The
-- Good
-- Stuff
+2. Install all of the project dependencies using npm:
 
+    ```bash
+    npm install
+    ```
 
-## Usage
+3. Copy the `.env` example file and enter the required secrets such as API keys:
 
-```js
-const package = require('project-name');
+    ```bash
+    cp .env.example .env && open .env
+    ```
 
-// Example code
-```
+4. You can now start and visit the running application using the [Vercel CLI](https://vercel.com/docs/cli):
 
-
-## API
-
-### `.method(args)`
-
-Returns something.
-
-
-## Development
-
-This project uses [Prettier] for code formatting, is written using [TypeScript] declarations and is tested with [xxx].
-
-[TypeScript]: https://www.typescriptlang.org/
-[Prettier]: https://prettier.io/
-[xxx]: http://test-tool.github.io/
-
-
-## License
-
-This project is [MIT] licensed.
-
-[MIT]: https://opensource.org/licenses/MIT
+    ```bash
+    npx vercel dev
+    ```
