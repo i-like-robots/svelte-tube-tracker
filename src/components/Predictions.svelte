@@ -61,7 +61,10 @@
   function resetPoll() {
     clearInterval(poller)
     poller = setInterval(() => refreshData(), 1000 * 30)
-    timer.reset()
+
+    if (timer) {
+      timer.reset()
+    }
   }
 
   onMount(() => {
