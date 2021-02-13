@@ -262,6 +262,11 @@ button:active {
   background: #fff;
 }
 
+.Departures-noData {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
 /**
  * Trains table
  */

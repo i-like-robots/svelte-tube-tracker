@@ -11,10 +11,14 @@
     {arrivalsData.station.stationName} Station,
     {arrivalsData.station.lineName} Line
   </h1>
-  {#each platforms as [name, trains]}
-    <div class="Platform">
-      <h2 class="Platform-heading">{name}</h2>
-      <DepartureBoardTrains {trains} />
-    </div>
-  {/each}
+  {#if platforms.length}
+    {#each platforms as [name, trains]}
+      <div class="Platform">
+        <h2 class="Platform-heading">{name}</h2>
+        <DepartureBoardTrains {trains} />
+      </div>
+    {/each}
+  {:else}
+    <p class="Departures-noData">No train arrivals due.</p>
+  {/if}
 </div>
