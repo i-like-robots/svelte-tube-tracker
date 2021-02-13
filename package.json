@@ -38,6 +38,7 @@
     "prettier-plugin-svelte": "^2.1.2",
     "rollup": "^2.38.5",
     "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
     "vercel": "^21.2.3"
   },
   "engines": {
