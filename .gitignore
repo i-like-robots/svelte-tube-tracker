@@ -9,3 +9,5 @@ public/bundle.js.map
 npm-debug.log
 package-lock.json
 Thumbs.db
+
+.vercel

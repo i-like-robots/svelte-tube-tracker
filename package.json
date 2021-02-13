@@ -3,12 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "description": "",
-  "main": "src/server/start.js",
   "scripts": {
-    "dev": "env $(cat .env) nodemon index.js -e js,svelte",
-    "start": "node src/server/start.js",
-    "build:dev": "rollup -c --environment BUILD:dev",
-    "build:prod": "rollup -c --environment BUILD:production",
+    "env": "env $(cat .env) ",
+    "build": "rollup -c",
     "lint": "eslint . --ext js,svelte",
     "format": "prettier --write '**/*.{js,svelte,json,css}'",
     "spec": "echo 'not implemented'",
@@ -43,7 +40,8 @@
     "prettier-plugin-svelte": "^2.1.2",
     "rollup": "^2.38.5",
     "rollup-plugin-svelte": "^7.1.0",
-    "svelte": "^3.32.0"
+    "svelte": "^3.32.0",
+    "vercel": "^21.2.3"
   },
   "engines": {
     "node": ">= 14.15.0"

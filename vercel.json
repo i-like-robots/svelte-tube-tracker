@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/api/home" },
+    { "source": "/api/:line/:station", "destination": "/api/arrivals" }
+  ]
+}
