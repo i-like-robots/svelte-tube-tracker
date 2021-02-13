@@ -7,7 +7,6 @@ public/bundle.js.map
 .DS_Store
 .env
 npm-debug.log
-package-lock.json
 Thumbs.db
 
 .vercel
