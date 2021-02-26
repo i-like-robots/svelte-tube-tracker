@@ -6,6 +6,7 @@
   "scripts": {
     "env": "env $(cat .env) ",
     "build": "rollup -c",
+    "vercel-build": "npm run build",
     "lint": "eslint . --ext js,svelte",
     "format": "prettier --write '**/*.{js,svelte,json,css}'",
     "spec": "echo 'not implemented'",
