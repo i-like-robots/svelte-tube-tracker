@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const fetch = require('node-fetch').default
 const createError = require('http-errors')
 
 const DEFAULTS = {
