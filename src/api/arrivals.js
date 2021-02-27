@@ -1,6 +1,6 @@
-const { arrivals } = require('../server/apiClient')
+import { arrivals } from '../server/apiClient'
 
-async function arrivalsFn(request, response) {
+export default async function arrivalsFn(request, response) {
   try {
     const data = await arrivals(request.query.line, request.query.station)
 
@@ -12,5 +12,3 @@ async function arrivalsFn(request, response) {
     console.error(error)
   }
 }
-
-module.exports = arrivalsFn

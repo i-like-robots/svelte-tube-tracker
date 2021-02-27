@@ -1,8 +1,8 @@
-const { arrivals } = require('../server/apiClient')
-const networkData = require('../server/networkData.json')
-const App = require('../components/App.svelte').default
+import { arrivals } from '../server/apiClient'
+import networkData from '../server/networkData.json'
+import App from '../components/App.svelte'
 
-async function homeFn(request, response) {
+export default async function homeFn(request, response) {
   try {
     const { line, station } = request.query
 
@@ -39,5 +39,3 @@ async function homeFn(request, response) {
     console.error(error)
   }
 }
-
-module.exports = homeFn

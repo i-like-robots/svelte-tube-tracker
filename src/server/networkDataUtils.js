@@ -1,18 +1,18 @@
-function isLine(line, data) {
+export function isLine(line, data) {
   return line && line in data.lines
 }
 
-function isStation(station, data) {
+export function isStation(station, data) {
   return station && station in data.stations
 }
 
-function isStationOnLine(line, station, data) {
+export function isStationOnLine(line, station, data) {
   return (
     isLine(line, data) && isStation(station, data) && data.stationsOnLines[line].includes(station)
   )
 }
 
-function mergeGroupedLines(line, station, data) {
+export function mergeGroupedLines(line, station, data) {
   const lines = [line]
 
   if (station in data.sharedPlatforms) {
@@ -22,11 +22,4 @@ function mergeGroupedLines(line, station, data) {
   }
 
   return Array.from(new Set(lines))
-}
-
-module.exports = {
-  isLine,
-  isStation,
-  isStationOnLine,
-  mergeGroupedLines,
 }

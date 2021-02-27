@@ -1,9 +1,9 @@
-const createHttpError = require('http-errors')
-const { httpRequest } = require('./httpRequest')
-const networkData = require('./networkData.json')
-const { isStationOnLine, mergeGroupedLines } = require('./networkDataUtils')
+import createHttpError from 'http-errors'
+import { httpRequest } from './httpRequest'
+import networkData from './networkData.json'
+import { isStationOnLine, mergeGroupedLines } from './networkDataUtils'
 
-function request(pathname, params = {}) {
+export function request(pathname, params = {}) {
   const query = new URLSearchParams({
     ...params,
     // app_id: process.env.APP_ID,
@@ -18,7 +18,7 @@ function request(pathname, params = {}) {
   return httpRequest(url.toString())
 }
 
-async function arrivals(lineCode, stationCode) {
+export async function arrivals(lineCode, stationCode) {
   if (!isStationOnLine(lineCode, stationCode, networkData)) {
     throw createHttpError(400, 'Invalid station and/or line combination')
   }
@@ -52,5 +52,3 @@ async function arrivals(lineCode, stationCode) {
     platforms,
   }
 }
-
-module.exports = { request, arrivals }

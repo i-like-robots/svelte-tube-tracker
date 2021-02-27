@@ -1,5 +1,5 @@
-const fetch = require('node-fetch').default
-const createError = require('http-errors')
+import fetch from 'node-fetch'
+import createError from 'http-errors'
 
 const DEFAULTS = {
   timeout: 3000,
@@ -12,7 +12,7 @@ const DEFAULTS = {
  * @returns {Promise<any>}
  * @throws {HTTPError} Will throw an HTTP error for non-200 responses
  */
-async function httpRequest(url, init = {}) {
+export async function httpRequest(url, init = {}) {
   const response = await fetch(url, { ...DEFAULTS, ...init })
 
   const contentType = response.headers.get('Content-Type')
@@ -34,5 +34,3 @@ async function httpRequest(url, init = {}) {
     })
   }
 }
-
-module.exports = { httpRequest }
