@@ -1,25 +1,21 @@
 <script>
+  import { Status } from '../constants'
+
   export let type
 
-  function statusText(status) {
-    let text
+  const statusToClass = {
+    [Status.Error]: 'error',
+    [Status.Loading]: 'loading',
+    [Status.Welcome]: 'welcome',
+  }
 
-    switch (status) {
-      case 'error':
-        text = 'Sorry an error occurred, please try again.'
-        break
-      case 'loading':
-        text = 'Loading predictions…'
-        break
-      case 'welcome':
-        text = 'Please choose a station.'
-        break
-    }
-
-    return text
+  const statusToText = {
+    [Status.Error]: 'Sorry an error occurred, please try again.',
+    [Status.Loading]: 'Loading predictions…',
+    [Status.Welcome]: 'Please choose a station.',
   }
 </script>
 
-<div class={`Notice Notice--${type}`}>
-  <p>{statusText(type)}</p>
+<div class={`Notice Notice--${statusToClass[type]}`}>
+  <p>{statusToText[type]}</p>
 </div>

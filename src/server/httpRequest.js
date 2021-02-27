@@ -19,7 +19,6 @@ export async function httpRequest(url, init = {}) {
 
   let result
 
-  // This is probably not necessary for a tech test...
   if (contentType?.includes('application/json')) {
     result = await response.json()
   } else {

@@ -35,6 +35,7 @@ export async function arrivals(lineCode, stationCode) {
   const platforms = {}
 
   arrivals.forEach((arrival) => {
+    // TODO: use nullish coalescing when available
     // platforms[record.platformName] ??= []
     platforms[arrival.platformName] = platforms[arrival.platformName] || []
     platforms[arrival.platformName].push(arrival)
