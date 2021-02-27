@@ -4,7 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import json from '@rollup/plugin-json'
 
-const isProduction = !process.env.VERCEL
+const isProduction = Boolean(process.env.VERCEL)
 
 function createClientBundle(input) {
   return {
