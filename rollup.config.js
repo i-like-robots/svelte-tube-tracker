@@ -13,7 +13,7 @@ function createClientBundle(input) {
       sourcemap: true,
       format: 'iife',
       name: 'app',
-      file: 'public/bundle.js',
+      dir: 'public/build/',
     },
     plugins: [
       svelte({
@@ -38,7 +38,7 @@ function createServerBundle(input) {
       sourcemap: true,
       format: 'cjs',
       exports: 'default',
-      dir: 'api/',
+      dir: 'api/build/',
     },
     plugins: [
       svelte({
@@ -61,7 +61,7 @@ function createServerBundle(input) {
 }
 
 module.exports = [
-  createClientBundle('src/client/bootstrap.js'),
+  createClientBundle('src/client/app.js'),
   createServerBundle('src/api/home.js'),
   createServerBundle('src/api/arrivals.js'),
 ]

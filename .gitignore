@@ -1,8 +1,7 @@
 .vscode/
-api/
+api/build/
 node_modules/
-public/bundle.js
-public/bundle.js.map
+public/build/
 
 .DS_Store
 .env

@@ -29,7 +29,7 @@ async function homeFn(request, response) {
           <script type="application/json" id="initialData">
             ${JSON.stringify({ networkData, arrivalsData })}
           </script>
-          <script src="/bundle.js"></script>
+          <script src="/build/app.js"></script>
         </body>
       </html>
     `)
