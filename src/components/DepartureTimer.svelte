@@ -40,6 +40,6 @@
 </script>
 
 <label class="Timer">
-  <span class="u-visuallyHidden">Time to next update:</span>
+  <span>Time to next update:</span>
   <progress value={elapsed / duration}>{Math.round((duration - elapsed) / 1000)} seconds</progress>
 </label>

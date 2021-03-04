@@ -318,6 +318,11 @@ button:active {
   margin-bottom: 2rem;
 }
 
+.Timer span {
+  display: block;
+  font-size: 0.875rem;
+}
+
 .Timer progress {
   width: 10rem;
   height: 0.75rem;
