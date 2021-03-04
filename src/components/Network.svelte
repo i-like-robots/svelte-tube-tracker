@@ -12,5 +12,4 @@
   {#each lineCodes as lineCode}
     <NetworkLine on:station-select {line} {station} {networkData} {lineCode} />
   {/each}
-  <!-- <button type="button" class="Network-toggle"> Toggle </button> -->
 </div>
