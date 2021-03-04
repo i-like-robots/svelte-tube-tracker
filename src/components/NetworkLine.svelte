@@ -6,14 +6,14 @@
   export let lineCode
   export let networkData
 
+  let stationCode
+
   const dispatch = createEventDispatcher()
 
-  function handleSubmit(e) {
-    const data = new FormData(e.target)
-
+  function handleSubmit() {
     dispatch('station-select', {
-      line: data.get('line'),
-      station: data.get('station'),
+      line: lineCode,
+      station: stationCode,
     })
   }
 </script>
@@ -22,7 +22,7 @@
   <fieldset class={`Network-line Network-line--${lineCode}`}>
     <legend>{networkData.lines[lineCode]}</legend>
     <input type="hidden" name="line" value={lineCode} />
-    <select name="station">
+    <select bind:value={stationCode} name="station">
       {#each networkData.stationsOnLines[lineCode] as stationCode}
         <option value={stationCode} selected={line === lineCode && station === stationCode}>
           {networkData.stations[stationCode]}
