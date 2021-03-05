@@ -25,7 +25,6 @@ function createClientBundle(input) {
       resolve({
         browser: true,
       }),
-      commonjs(),
       isProduction && terser(),
     ],
   }
