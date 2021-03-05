@@ -1,5 +1,7 @@
 # Svelte Tube tracker
 
+ This is an application to check the predicted arrival times of trains at stations on the London Underground network. The project is a port of my original [React Tube Tracker](https://github.com/i-like-robots/react-tube-tracker) built in 2014.
+
 See the [about section](#about) to find out more about the app or jump to the [getting started](#getting-started) to run the website on your machine.
 
 ---
@@ -11,6 +13,8 @@ See the [about section](#about) to find out more about the app or jump to the [g
 ---
 
 ## About
+
+TODO
 
 ### Requirements
 
