@@ -32,8 +32,8 @@
     }
   }
 
-  async function updateData() {
-    clearInterval(poller)
+  async function replaceData() {
+    stopPoll()
 
     arrivalsData = null
     status = Status.Loading
@@ -46,7 +46,7 @@
       status = Status.Error
     }
 
-    resetPoll()
+    startPoll()
   }
 
   async function refreshData() {
@@ -56,29 +56,36 @@
       console.error(error)
     }
 
-    resetPoll()
+    startPoll()
   }
 
-  function resetPoll() {
-    clearInterval(poller)
+  function startPoll() {
     poller = setInterval(() => refreshData(), 1000 * 30)
 
     if (timer) {
-      timer.reset()
+      timer.start()
+    }
+  }
+
+  function stopPoll() {
+    clearInterval(poller)
+
+    if (timer) {
+      timer.stop()
     }
   }
 
   onMount(() => {
     if (line && station) {
-      resetPoll()
+      startPoll()
     }
   })
 
   onDestroy(() => {
-    clearInterval(poller)
+    stopPoll()
   })
 
-  $: isInvalidData(line, station) && updateData(line, station)
+  $: isInvalidData(line, station) && replaceData(line, station)
 </script>
 
 {#if arrivalsData && status === Status.Success}

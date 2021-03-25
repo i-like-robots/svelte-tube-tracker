@@ -3,43 +3,48 @@
 
   export let duration
 
-  let frame
-  let elapsed = 0
+  let nextFrame
   let prevTime
+  let elapsedTime = 0
 
   function tick() {
-    frame = requestAnimationFrame(() => {
+    nextFrame = requestAnimationFrame(() => {
       prevTime = prevTime || window.performance.now()
 
       const time = window.performance.now()
 
-      elapsed += time - prevTime
+      elapsedTime += time - prevTime
       prevTime = time
 
-      if (elapsed < duration) {
+      if (elapsedTime < duration) {
         tick()
       }
     })
   }
 
-  export function reset() {
-    cancelAnimationFrame(frame)
-    elapsed = 0
+  export function start() {
+    elapsedTime = 0
     tick()
   }
 
+  export function stop() {
+    if (nextFrame) {
+      cancelAnimationFrame(nextFrame)
+    }
+  }
+
   onMount(() => {
-    tick()
+    start()
   })
 
   onDestroy(() => {
-    if (frame) {
-      cancelAnimationFrame(frame)
-    }
+    stop()
   })
 </script>
 
 <label class="Timer">
   <span>Time to next update:</span>
-  <progress value={elapsed / duration}>{Math.round((duration - elapsed) / 1000)} seconds</progress>
+  <progress value={elapsedTime / duration}
+    >{Math.round((duration - elapsedTime) / 1000)} seconds</progress
+  >
 </label>
