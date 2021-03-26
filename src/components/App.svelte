@@ -1,4 +1,5 @@
 <script>
+  import Footer from './Footer.svelte'
   import Network from './Network.svelte'
   import Predictions from './Predictions.svelte'
 
@@ -27,5 +28,8 @@
   </div>
   <div class="Layout-network">
     <Network {line} {station} {networkData} on:station-select={handleStationSelect} />
+  </div>
+  <div class="Layout-footer">
+    <Footer />
   </div>
 </div>

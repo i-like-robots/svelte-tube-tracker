@@ -148,15 +148,35 @@ button:active {
   .Layout {
     display: grid;
     grid-template-columns: 360px auto;
+    grid-template-areas:
+      'sidebar content'
+      'footer footer';
   }
 
   .Layout-predictions {
-    order: 1;
+    grid-area: content;
   }
 
   .Layout-network {
-    order: 0;
+    grid-area: sidebar;
   }
+
+  .Layout-footer {
+    grid-area: footer;
+    text-align: center;
+  }
+}
+
+/**
+ * Footer
+ */
+.Footer {
+  text-align: center;
+  border-top: 1px solid #9daca9;
+}
+
+.Footer p {
+  margin: 1rem 0 0;
 }
 
 /**
