@@ -18,6 +18,7 @@ function createClientBundle(input) {
     plugins: [
       svelte({
         compilerOptions: {
+          generate: 'dom',
           hydratable: true,
           dev: !isProduction,
         },
@@ -44,7 +45,6 @@ function createServerBundle(input) {
         compilerOptions: {
           hydratable: true,
           generate: 'ssr',
-          // format: '',
           dev: !isProduction,
         },
       }),
