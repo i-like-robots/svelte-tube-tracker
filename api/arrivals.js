@@ -1,1 +1,2 @@
-module.exports = require('./build/arrivals.js')
+import arrivalsFn from './build/arrivals.js'
+export default arrivalsFn

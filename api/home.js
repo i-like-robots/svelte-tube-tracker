@@ -1,1 +1,2 @@
-module.exports = require('./build/home.js')
+import homeFn from './build/home.js'
+export default homeFn

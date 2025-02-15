@@ -35,7 +35,7 @@ function createServerBundle(input) {
     input,
     output: {
       sourcemap: true,
-      format: 'cjs',
+      format: 'esm',
       exports: 'default',
       dir: 'api/build/',
     },
@@ -44,7 +44,7 @@ function createServerBundle(input) {
         compilerOptions: {
           hydratable: true,
           generate: 'ssr',
-          format: 'cjs',
+          // format: '',
           dev: !isProduction,
         },
       }),
