@@ -1,5 +1,5 @@
 import svelte from 'rollup-plugin-svelte'
-import { terser } from 'rollup-plugin-terser'
+import terser from '@rollup/plugin-terser'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import json from '@rollup/plugin-json'
@@ -59,7 +59,7 @@ function createServerBundle(input) {
   }
 }
 
-module.exports = [
+export default [
   createClientBundle('src/client/app.js'),
   createServerBundle('src/api/home.js'),
   createServerBundle('src/api/arrivals.js'),
