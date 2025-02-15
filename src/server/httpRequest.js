@@ -1,4 +1,3 @@
-import fetch from 'node-fetch'
 import createError from 'http-errors'
 
 const DEFAULTS = {
