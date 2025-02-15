@@ -26,7 +26,7 @@
   "homepage": "https://github.com/i-like-robots/svelte-tube-tracker",
   "dependencies": {
     "http-errors": "^1.8.0",
-    "svelte": "^3.32.0"
+    "svelte": "^4.2.18"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.2",
@@ -41,7 +41,7 @@
     "prettier-plugin-svelte": "^3.3.2",
     "rollup": "^4.34.6",
     "rollup-plugin-svelte": "^7.2.2",
-    "vercel": "^21.2.3"
+    "vercel": "^41.1.4"
   },
   "engines": {
     "node": "^22.11.0"
